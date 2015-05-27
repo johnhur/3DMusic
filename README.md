@@ -9,5 +9,4 @@ look up something like fourier-transformations.
 listeners for beats.
 change displays when. 
 
-
-415 957 9622 
+// cube clic
