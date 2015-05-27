@@ -29,55 +29,61 @@ var scene = new THREE.Scene();
 
 			camera.position.z = 15;
 
-			function rotateCube3 () {
+			function rotateCubes () {
 				cube3.rotation.y += 0.025;
 				cube3.rotation.x += 0.025;
-			}
-			function rotateCube2() {
 				cube2.rotation.y += 0.035;
-				//cube2.rotation.x += 0.035;
-			}
-			function rotateCube1 () {
+				cube2.rotation.x += 0.015;
 				cube1.rotation.y += 0.025;
 				cube1.rotation.x += 0.025;
-			}
-			function rotateCube4 () {
 				cube4.rotation.y += 0.025;
 				cube4.rotation.x += 0.015;
 			}
 
 			function render() {
 				requestAnimationFrame( render );
-					rotateCube3();
-					rotateCube2();
-					rotateCube1();
-					rotateCube4();
+					rotateCubes();
 				renderer.render( scene, camera );
 			}
-			render();			
+			render();
+
+var blue = document.getElementById('blue');		
+
+blue.addEventListener('click', function() {
+	console.log("div clicked!")
+	cube1.translateX(2);
+})
+
+console.log(cube1);
 
 
-cube1.addEventListener("click", function() {
-    console.log("Button clicked.");
-  });
+// cube1.addEventListener("click", function() {
+//     console.log("Button clicked.");
+//   });
 
-function cube1r() {
-  addEventListener("keydown", function(event) {
-    if (event.keyCode == 66) // "b on keyboard"
-      //cube1.rotation.x += 1;
-  	  cube1.translateY(1);
+
+function cube1r(cube1) {
+	THREE.EventDispatcher.call(cube1);
+ 	cube1.addEventListener("click", function(event) {
+  	
+  	// if (event.keyCode == 66) {
+  	  cube1.translateX(5);
+  	//
   });
   // addEventListener("keyup", function(event) {
   //   if (event.keyCode == 66)
   //     document.body.style.background = "";
   // });
 };
-cube1r();
+cube1r(cube1);
+
+
 
 function cube2r() {
   addEventListener("keydown", function(event) {
-    if (event.keyCode == 86)
+    if (event.keyCode == 86) {
       cube2.rotation.x += 1;
+    }
 
   });
   // addEventListener("keyup", function(event) {
@@ -87,40 +93,3 @@ function cube2r() {
 };
 cube2r();
 
-// var light = new THREE.AmbientLight( 0x404040 ); // soft white light
-// scene.add( light );
-
-// var context;
-// window.addEventListener('load', init, false);
-// function init() {
-//   try {
-//     // Fix up for prefixing
-//     window.AudioContext = window.AudioContext||window.webkitAudioContext;
-//     context = new AudioContext();
-//   }
-//   catch(e) {
-//     alert('Web Audio API is not supported in this browser');
-//   }
-// }
-
-// var dogBarkingBuffer = null;
-// // Fix up prefixing
-// window.AudioContext = window.AudioContext || window.webkitAudioContext;
-// var context = new AudioContext();
-
-// function loadDogSound(url) {
-//   var request = new XMLHttpRequest();
-//   request.open('GET', url, true);
-//   request.responseType = 'arraybuffer';
-
-//   // Decode asynchronously
-//   request.onload = function() {
-//     context.decodeAudioData(request.response, function(buffer) {
-//       dogBarkingBuffer = buffer;
-//     }, onError);
-//   }
-//   request.send();
-// }
-// // Fix up prefixing
-
-			

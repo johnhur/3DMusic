@@ -2,6 +2,9 @@
 
 * {
   font-family: 'Open Sans Condensed', sans-serif;
+  text-align: center;
+  margin: auto;
+  font-size: 30px;
 }
 
 h1 {
@@ -10,3 +13,4 @@ h1 {
   margin:10px 0 20px 0;
   text-align: center;
 }
+
